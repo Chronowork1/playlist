@@ -20,7 +20,7 @@
 
 //**************************** YOUR CODE BELOW *******************************
 //*********** CHECK YOUR WORK EARLY AND OFTEN WITH console.log()!! ***********
-
+$( document ).ready(function() {
 // Data
 var mySong = {
 	"title": "Don't Worry Be Happy",
@@ -55,10 +55,9 @@ var myPlayList = [
 
 
 // DOCUMENT READY FUNCTION
-$( document ).ready(function() {
+displayList();
 	// everything inside this function happens as soon as the page loads!
-displaySong(mySong);
-});
+
 
 
 
@@ -70,13 +69,19 @@ function displaySong(songObject){
     $("#songInfo").append("<p>" + mySong.artist + "</p>");
     $("#songInfo").append('<img src="' + mySong.imageURL + '"</p>');
     $("#songInfo").append('<a href="' + mySong.playURL + '"> Play Song</a>');
-	
+	displaySong(mySong);
 }
 
 // displayList takes in an array of song objects, and it uses the information from each song object
 //    to create an HTML element and append it to the playlist on the page
 function displayList(songsArray){
-
+for (var i = 0; i < myPlayList.length; i++){
+ 
+    $('body').append(myPlayList[i].title);
+    $('body').append(myPlayList[i].artist);
+    $('body').append('<img src='+myPlayList[i].imageURL+'>');
+    $('body').append('<a href='+myPlayList[i].playURL+'>Play Song.</a>');  
+}
 
 
 }
@@ -96,3 +101,4 @@ function addSong(){
 
 }
 
+});
