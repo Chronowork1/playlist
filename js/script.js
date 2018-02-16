@@ -31,22 +31,22 @@ $( document ).ready(function() {
 
 	var myPlayList = [
 	{
-		"title": "Mozart's House",
-		"artist": "Clean Bandit ft. Love Ssega",
-		"imageURL": "https://i.scdn.co/image/f311bae0ebf733fb22e9569037cf44b68e641710",
-		"playURL": "https://open.spotify.com/album/52okycllbZsjP4tKJ0goBA",
+		//"title": "Mozart's House",
+		//"artist": "Clean Bandit ft. Love Ssega",
+		//"imageURL": "https://i.scdn.co/image/f311bae0ebf733fb22e9569037cf44b68e641710",
+		//"playURL": "https://open.spotify.com/album/52okycllbZsjP4tKJ0goBA",
 	},
 	{
-		"title": "Seven Nation Army",
-		"artist": "White Stripes",
-		"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51yynBRMVbL._AC_US500_QL65_.jpg",
-		"playURL": "https://open.spotify.com/album/4StIitBi8mj72prw8U4lod",
+		//"title": "Seven Nation Army",
+		//"artist": "White Stripes",
+		//"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51yynBRMVbL._AC_US500_QL65_.jpg",
+		//"playURL": "https://open.spotify.com/album/4StIitBi8mj72prw8U4lod",
 	},
 	{
-		"title": "Move Your Feet",
-		"artist": "Junior Senior",
-		"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51hGF-ePp1L._AC_US500_FMwebp_QL65_.jpg",
-		"playURL": "https://open.spotify.com/track/7cGfrVoC7G03XeXn7yflx5",
+		//"title": "Move Your Feet",
+		//"artist": "Junior Senior",
+		//"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51hGF-ePp1L._AC_US500_FMwebp_QL65_.jpg",
+		//"playURL": "https://open.spotify.com/track/7cGfrVoC7G03XeXn7yflx5",
 	}
 	]
 // DOCUMENT READY FUNCTION
@@ -75,7 +75,7 @@ $( document ).ready(function() {
 
 // clearList removes all the content from the playlist on the page
 	function clearList(){
-
+		$("#songInfo").html("");
 	}
 
 // addSong takes inputs from the input boxes, organizes them into a new song object, and
