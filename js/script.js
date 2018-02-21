@@ -71,6 +71,29 @@ $( document ).ready(function() {
 	// everything inside this function happens as soon as the page loads!
 // displaySong uses the properties in the songObject to create an HTML element for a single song
 //	  and appends the element to the playlist on the page
+	function addSong(){
+		$("#submit").click(function() {
+    		var titleVal = $("#title").val();
+    		var artistVal = $("#artist").val();
+    		var playLink = $("#play-link").val();
+    		var albumImage = $("#album-image").val();
+    
+			var newSong = {
+    			"title": titleVal,
+    			"artist": artistVal,
+    			"playLink":playLink,
+    			"albumImage":albumImage
+    		};
+    	//myPlayList.push(newSong);
+    	$("#inputDiv").append(newSong);
+		});
+		
+		$("#submit").click(function() {
+			clearList();
+
+		}
+
+
 	function displaySong(songObject){
 		$("body").html("<div id='songInfo'></div>");
 		$("#songInfo").append("<img src=" + mySong.imageURL +" ></a>");
@@ -85,35 +108,17 @@ $( document ).ready(function() {
 		for (var i = 0; i < myPlayList.length; i++){
     		$('body').append(myPlayList[i].title);
     		$('body').append(myPlayList[i].artist);
-    		$('body').append('<img src='+myPlayList[i].imageURL+'>');
-    		$('body').append('<a href='+myPlayList[i].playURL+'></a>');  
+    		$('body').append('<img src="'+myPlayList[i].imageURL+'">');
+    		$('body').append('<a href="'+myPlayList[i].playURL+'"></a>'); 
+    			displaySong(myPlayList[i]);
 		}
 	}
-
 // clearList removes all the content from the playlist on the page
 	function clearList(){
-		$("#songInfo").html("");
+		$("#inputDiv").html("");
 	}
-
 // addSong takes inputs from the input boxes, organizes them into a new song object, and
-//    pushes a new song to the playlist array
-	function addSong(){
-		$("#submit").click(function() {
-    		var titleVal = $("#title").val();
-    		var artistVal = $("#artist").val();
-    		var playLink = $("#play-link").val();
-    		var albumImage = $("#album-image").val();
-    
-			var newSong = {
-    			"title": titleVal,
-    			"artist": artistVal,
-    			"playLink":"https://imgc.artprintimages.com/img/print/print/vincent-van-gogh-starry-night-c-1889_a-l-1517056-8880730.jpg?w=550&h=550",
-    			"albumImage":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
-    		};
-    	myPlayList.push(newSong);
-    	$("body").append(newSong);
-		});
-	}
-
+// pushes a new song to the playlist array
+	
 });
 
