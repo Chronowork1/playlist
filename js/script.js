@@ -22,22 +22,14 @@
 //*********** CHECK YOUR WORK EARLY AND OFTEN WITH console.log()!! ***********
 
 // Data
-	var mySong = {
-		"title": "Don't Worry Be Happy",
-		"artist": "Bobby McFerrin",
-		"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51cB3PoKceL._AC_US500_FMwebp_QL65_.jpg",
-		"playURL": "https://open.spotify.com/track/4v52HuhZqVV0eNpP6vzH5I",
-	}
-	/*$("button").click(function(){
-		var newSong = {
-    		"title": $("#title").val(),
-        	"artist": $("#artist").val(),
-        	"playURL": $("#play-link").val(),
-        	"imageURL": $("#album-image").val()
-    	};
-		
-	}*/
-	var myPlayList = [
+var mySong = {
+	"title": "Don't Worry Be Happy",
+	"artist": "Bobby McFerrin",
+	"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51cB3PoKceL._AC_US500_FMwebp_QL65_.jpg",
+	"playURL": "https://open.spotify.com/track/4v52HuhZqVV0eNpP6vzH5I",
+}
+
+var myPlayList = [
 	{
 		"title": "Mozart's House",
 		"artist": "Clean Bandit ft. Love Ssega",
@@ -56,69 +48,56 @@
 		"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51hGF-ePp1L._AC_US500_FMwebp_QL65_.jpg",
 		"playURL": "https://open.spotify.com/track/7cGfrVoC7G03XeXn7yflx5",
 	}
-	];
-	
+
+]
 	
 // DOCUMENT READY FUNCTION
 $( document ).ready(function() {
-	/*displayList(myPlayList);
-	$("button").click(function() {
-		clearList();
-		addSong;
-		$("#songInfo").html("");
-		displayList(myPlayList);
-	}*/
-	// everything inside this function happens as soon as the page loads!
-// displaySong uses the properties in the songObject to create an HTML element for a single song
-//	  and appends the element to the playlist on the page
-	function addSong(){
-		$("#submit").click(function() {
-    		var titleVal = $("#title").val();
-    		var artistVal = $("#artist").val();
-    		var playLink = $("#play-link").val();
-    		var albumImage = $("#album-image").val();
-    
-			var newSong = {
-    			"title": titleVal,
-    			"artist": artistVal,
-    			"playLink":playLink,
-    			"albumImage":albumImage
-    		};
-    	//myPlayList.push(newSong);
-    	$("#inputDiv").append(newSong);
-		});
+  $("button").click(function() {
+      clearList();
+      addSong();
+	  displayList(myPlayList);
+  });
 		
-		$("#submit").click(function() {
-			clearList();
-
-		}
-
 
 	function displaySong(songObject){
-		$("body").html("<div id='songInfo'></div>");
-		$("#songInfo").append("<img src=" + mySong.imageURL +" ></a>");
-    	$("#songInfo").append("<h3>" + mySong.title + "</h3>");
-    	$("#songInfo").append("<p>" + mySong.artist + "</p>");
-    	$("#songInfo").append('<a href="' + mySong.playURL + '"> Play Song</a>');
+	  var songTitle = songObject["title"];
+	  var songArtist = songObject["artist"];
+	  var songImage = songObject["imageURL"];
+	  var songURL = songObject["playURL"];
+	  $("body").append('<div id="songInfo"></div>');
+	  $("#songInfo").append("<div><img src=" + songImage + "></a></div>");
+      $("#songInfo").append("<div><h3>" + songTitle + "</h3></div>");
+      $("#songInfo").append("<div><p>" + songArtist + "</p></div>");
+      $("#songInfo").append('<div><a href="' + songURL + '"> Play Song</a></div>');
 	}
-
-// d	isplayList takes in an array of song objects, and it uses the information from each song object
-//    to create an HTML element and append it to the playlist on the page
-	function displayList(songsArray){
-		for (var i = 0; i < myPlayList.length; i++){
-    		$('body').append(myPlayList[i].title);
-    		$('body').append(myPlayList[i].artist);
-    		$('body').append('<img src="'+myPlayList[i].imageURL+'">');
-    		$('body').append('<a href="'+myPlayList[i].playURL+'"></a>'); 
-    			displaySong(myPlayList[i]);
-		}
-	}
-// clearList removes all the content from the playlist on the page
-	function clearList(){
-		$("#inputDiv").html("");
-	}
-// addSong takes inputs from the input boxes, organizes them into a new song object, and
-// pushes a new song to the playlist array
 	
+
+	function displayList(songsArray){
+	  for (var i = 0; i < songsArray.length; i=i+1){
+	  	displaySong(songsArray[i]);
+	  }
+	}
+	
+	function clearList(){
+	  $("#songInfo").html(" ");
+	}
+	
+   function addSong(){
+	  var titleVal= $("#title").val();
+	  var artistVal= $("#artist").val();
+	  var linkVal= $("#play-link").val();
+	  var albumImageVal= $("#album-image").val();
+	  
+	  var newSong= {
+       "title": titleVal,
+       "artist": artistVal,
+       "playURL": linkVal,
+       "imageURL": albumImageVal
+	  };
+	myPlayList.push(newSong);
+	};
 });
+	
+
 
