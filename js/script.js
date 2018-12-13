@@ -22,67 +22,51 @@
 //*********** CHECK YOUR WORK EARLY AND OFTEN WITH console.log()!! ***********
 
 // Data
-var mySong = {
-	"title": "Don't Worry Be Happy",
-	"artist": "Bobby McFerrin",
-	"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51cB3PoKceL._AC_US500_FMwebp_QL65_.jpg",
-	"playURL": "https://open.spotify.com/track/4v52HuhZqVV0eNpP6vzH5I",
-}
 
 var myPlayList = [
-	{
-		"title": "Mozart's House",
-		"artist": "Clean Bandit ft. Love Ssega",
-		"imageURL": "https://i.scdn.co/image/f311bae0ebf733fb22e9569037cf44b68e641710",
-		"playURL": "https://open.spotify.com/album/52okycllbZsjP4tKJ0goBA",
-	},
-	{
-		"title": "Seven Nation Army",
-		"artist": "White Stripes",
-		"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51yynBRMVbL._AC_US500_QL65_.jpg",
-		"playURL": "https://open.spotify.com/album/4StIitBi8mj72prw8U4lod",
-	},
-	{
-		"title": "Move Your Feet",
-		"artist": "Junior Senior",
-		"imageURL": "https://images-na.ssl-images-amazon.com/images/I/51hGF-ePp1L._AC_US500_FMwebp_QL65_.jpg",
-		"playURL": "https://open.spotify.com/track/7cGfrVoC7G03XeXn7yflx5",
-	}
 
-]
+];
 	
 // DOCUMENT READY FUNCTION
 $( document ).ready(function() {
+	//This piece of code when clicked returns the clearList function, addSong function and 
+	//displayList with myPlayList as the input.
   $("button").click(function() {
       clearList();
       addSong();
 	  displayList(myPlayList);
   });
-		
 
+    //3rd
 	function displaySong(songObject){
 	  var songTitle = songObject["title"];
 	  var songArtist = songObject["artist"];
 	  var songImage = songObject["imageURL"];
 	  var songURL = songObject["playURL"];
-	  $("body").append('<div id="songInfo"></div>');
-	  $("#songInfo").append("<div><img src=" + songImage + "></a></div>");
+	  $(".card").append('<div class="card-body" id="songInfo"></div>');
+	  $("#songInfo").append("<div><img src=" + songImage + "class= song-image img-thumbnail float-right></a></div>");
       $("#songInfo").append("<div><h3>" + songTitle + "</h3></div>");
       $("#songInfo").append("<div><p>" + songArtist + "</p></div>");
-      $("#songInfo").append('<div><a href="' + songURL + '"> Play Song</a></div>');
+      $("#songInfo").append('<div><a href="' + songURL + '"> Play Now</a></div>');
 	}
 	
-
+	//2nd
+	//Basically list all of the append.
+	//songsArray loop through songObject and connect through displaySong.
 	function displayList(songsArray){
-	  for (var i = 0; i < songsArray.length; i=i+1){
+	  for (var i = 0; i < songsArray.length; i++){
 	  	displaySong(songsArray[i]);
 	  }
 	}
 	
+	//clear the songInfo div.
 	function clearList(){
 	  $("#songInfo").html(" ");
 	}
 	
+	//1st
+	//Takes the value from the input
+	//Then push the value for the variables and push it to myPlayList.
    function addSong(){
 	  var titleVal= $("#title").val();
 	  var artistVal= $("#artist").val();
@@ -96,7 +80,7 @@ $( document ).ready(function() {
        "imageURL": albumImageVal
 	  };
 	myPlayList.push(newSong);
-	};
+	}
 });
 	
 
