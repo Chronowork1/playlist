@@ -44,10 +44,10 @@ $( document ).ready(function() {
 	  var songImage = songObject["imageURL"];
 	  var songURL = songObject["playURL"];
 	  $(".card").append('<div class="card-body" id="songInfo"></div>');
-	  $("#songInfo").append("<div><img src=" + songImage + "class= song-image img-thumbnail float-right></a></div>");
-      $("#songInfo").append("<div><h3>" + songTitle + "</h3></div>");
-      $("#songInfo").append("<div><p>" + songArtist + "</p></div>");
-      $("#songInfo").append('<div><a href="' + songURL + '"> Play Now</a></div>');
+	  $("#songInfo").append('<img class="song-image img-thumbnail float-right" src=' + songImage+'>');
+      $("#songInfo").append("<div class= 'card-body'><h3>" + songTitle + "</h3></div>");
+      $("#songInfo").append("<div class = 'card-body'><p>" + songArtist + "</p></div>");
+      $("#songInfo").append('<div class = "card-body"><a href="' + songURL + '"> Play Now</a></div>');
 	}
 	
 	//2nd
